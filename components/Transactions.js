@@ -14,7 +14,23 @@ const Transactions = () => {
   return (
     <div className="flex items-center justify-center">
       <section className="flex flex-col mt-20">
-        {/* <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <button onClick={fetchTransactions}>Load Transactions</button>
+        {transactions.map((transaction) => {
+          return (
+            <div key={transaction.id}>
+              <Transaction transaction={transaction} />
+            </div>
+          );
+        })}
+      </section>
+    </div>
+  );
+};
+
+export default Transactions;
+
+{
+  /* <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <div class="mb-4">
           <label
             class="block text-gray-700 text-sm font-bold mb-2"
@@ -69,18 +85,5 @@ const Transactions = () => {
         >
           Submit Transaction
         </button>
-      </form> */}
-        <button onClick={fetchTransactions}>Load Transactions</button>
-        {transactions.map((transaction) => {
-          return (
-            <div key={transaction.id}>
-              <Transaction transaction={transaction} />
-            </div>
-          );
-        })}
-      </section>
-    </div>
-  );
-};
-
-export default Transactions;
+      </form> */
+}
