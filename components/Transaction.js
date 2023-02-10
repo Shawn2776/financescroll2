@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { AiOutlineDoubleRight } from "react-icons/ai";
 
 const Transaction = ({ transaction }) => {
   return (
