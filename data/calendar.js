@@ -13,6 +13,24 @@ export const calendar = [
             amount: -17,
             description: "Lunch",
           },
+          {
+            id: 2,
+            merchantName: "Reliable",
+            amount: -455,
+            description: "Car Note Payment",
+          },
+          {
+            id: 3,
+            merchantName: "NIC Paycheck",
+            amount: 850,
+            description: "Bi-weekly Paycheck",
+          },
+          {
+            id: 4,
+            merchantName: "Progressive",
+            amount: -187.52,
+            description: "Insurance Monthly payment",
+          },
         ],
       },
       {
