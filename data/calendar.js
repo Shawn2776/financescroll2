@@ -101,7 +101,14 @@ export const calendar = [
       {
         id: 115,
         day: "Sunday",
-        transactions: [{}],
+        transactions: [
+          {
+            id: 3,
+            merchantName: "NIC Paycheck",
+            amount: 850,
+            description: "Bi-weekly Paycheck",
+          },
+        ],
       },
       {
         id: 116,

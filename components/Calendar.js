@@ -16,34 +16,74 @@ const Calendar = () => {
   }, []);
   return (
     <>
-      <div className="flex flex-col justify-center items-center ml-[25%] mr-[25%]">
+      <div className="flex flex-col justify-center items-center ml-[25%] mr-[25%] bg-slate-50">
         <div id="month" className="">
           {calendar.map((month) => (
             <>
-              <span
-                className="flex flex-col justify-center items-center"
+              <div
+                className="flex flex-col justify-center items-center shadow-lg text-3xl border border-slate-200 rounded-lg mb-2 mt-2 bg-slate-200 min-w-full"
                 key={month.id}
               >
                 {month.month.toUpperCase()}
-              </span>
+              </div>
+
               {/* <span>{(balance.current = balance.current + 1)}</span> */}
               {month.days.map((day) => (
-                <>
-                  <span className="flex flex-col" key={day.id}>
+                <div
+                  className="shadow-md p-4 rounded flex bg-zinc-200 mb-2"
+                  key={day.id}
+                >
+                  <div className="flex flex-col min-w-[40px] text-3xl items-center">
+                    <span>{day.day.toUpperCase().slice(0, 3)}</span>
+                    <span className="mt-4 text-8xl">
+                      {day.id
+                        .toString()
+                        .substr(day.id.toString().indexOf(".") - 1, 3)}
+                    </span>
+                  </div>
+                  <div className="flex flex-col ml-20 text-3xl items-center">
                     {day.transactions?.map((transaction) => (
+                      <div
+                        className="flex flex-col items-center"
+                        key={transaction.id}
+                      >
+                        {transaction.amount == undefined ? (
+                          <div>
+                            <span className="uppercase">Balance</span>
+                            <br />
+                            <span className="text-8xl mt-8">
+                              $
+                              {newBalance.current >= 0 ? (
+                                <span className="text-green-500 mb-8">
+                                  {newBalance.current}
+                                </span>
+                              ) : (
+                                <span className="text-red-500">
+                                  {newBalance.current}
+                                </span>
+                              )}
+                            </span>
+                          </div>
+                        ) : (
+                          <div></div>
+                        )}
+                      </div>
+                    ))}
+
+                    {/* {day.transactions?.map((transaction) => (
                       <>
                         <span key={transaction.id}>
                           {transaction.amount == undefined
-                            ? `Balance: $${newBalance.current}`
-                            : `Amount: ${
-                                transaction.amount
-                              }  Balance: $${(newBalance.current +=
-                                transaction.amount)}`}
+                            ? <span className="ml-2">Balance: ${newBalance.current}`
+                            : `Balance: $${(newBalance.current +=
+                                transaction.amount)}
+                                Amount: $${transaction.amount} 
+                                `}
                         </span>
                       </>
-                    ))}
-                  </span>
-                </>
+                    ))} */}
+                  </div>
+                </div>
               ))}
             </>
           ))}
